@@ -1,0 +1,82 @@
+// ==============================================
+// Themes - Color Schemes
+// ==============================================
+
+// Theme mixin for consistent structure
+@mixin theme-colors($bg, $bg-secondary, $text, $text-muted, $primary, $primary-hover, $accent, $border, $card-bg, $glass-bg) {
+    --color-bg: #{$bg};
+    --color-bg-secondary: #{$bg-secondary};
+    --color-text: #{$text};
+    --color-text-muted: #{$text-muted};
+    --color-primary: #{$primary};
+    --color-primary-hover: #{$primary-hover};
+    --color-accent: #{$accent};
+    --color-border: #{$border};
+    --color-card-bg: #{$card-bg};
+    --color-glass-bg: #{$glass-bg};
+}
+
+// White / Light Theme (Default)
+.theme-white,
+body:not([class*="theme-"]) {
+    @include theme-colors(#f8fafc, // bg
+        #ffffff, // bg-secondary
+        #1e293b, // text
+        #64748b, // text-muted
+        #3b82f6, // primary (blue)
+        #2563eb, // primary-hover
+        #f59e0b, // accent (amber)
+        #e2e8f0, // border
+        #ffffff, // card-bg
+        rgba(255, 255, 255, 0.7) // glass-bg
+    );
+}
+
+// Dark Theme
+.theme-dark {
+    @include theme-colors(#0f172a, // bg
+        #1e293b, // bg-secondary
+        #f1f5f9, // text
+        #94a3b8, // text-muted
+        #60a5fa, // primary (light blue)
+        #93c5fd, // primary-hover
+        #fbbf24, // accent (yellow)
+        #334155, // border
+        #1e293b, // card-bg
+        rgba(30, 41, 59, 0.8) // glass-bg
+    );
+}
+
+// Pink Theme
+.theme-pink {
+    @include theme-colors(#fdf2f8, // bg
+        #fff1f7, // bg-secondary
+        #831843, // text
+        #9d174d, // text-muted
+        #ec4899, // primary (pink)
+        #db2777, // primary-hover
+        #f472b6, // accent (light pink)
+        #fbcfe8, // border
+        #ffffff, // card-bg
+        rgba(255, 241, 247, 0.8) // glass-bg
+    );
+}
+
+// High Contrast Theme
+.theme-contrasty {
+    @include theme-colors(#000000, // bg
+        #1a1a1a, // bg-secondary
+        #ffffff, // text
+        #e5e5e5, // text-muted
+        #ffff00, // primary (yellow)
+        #ffff66, // primary-hover
+        #00ffff, // accent (cyan)
+        #ffffff, // border
+        #1a1a1a, // card-bg
+        rgba(0, 0, 0, 0.9) // glass-bg
+    );
+
+    // Extra high contrast overrides
+    --shadow-md: 0 0 0 2px var(--color-border);
+    --shadow-lg: 0 0 0 3px var(--color-border);
+}
